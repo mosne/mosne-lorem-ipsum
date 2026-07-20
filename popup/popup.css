@@ -1,0 +1,184 @@
+/* Brand Identity & Design System Tokens */
+:root {
+  --bg-primary: #000000;
+  --bg-surface: #0a0a0c;
+  
+  --accent-color: #bd4400; /* Mosne Meditation Orange */
+  --accent-glow: rgba(189, 68, 0, 0.35);
+  
+  --border-color: #ffffff;
+  --border-color-muted: #333338;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  
+  --mosne-radius: 40px; /* Brand radius */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 320px;
+  background-color: var(--bg-primary);
+  font-family: 'DM Mono', monospace;
+  color: var(--text-primary);
+  overflow-x: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color-muted);
+  padding-bottom: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary); /* Logo in white */
+}
+
+.app-title {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+}
+
+/* Section */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  gap: 8px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-3x3 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* Pill Buttons */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px; /* Reduced to half of 48px */
+  border-radius: var(--mosne-radius);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: none;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+/* Hover: Orange accent background and border */
+.btn:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+/* Active: Inverts to white background */
+.btn:active {
+  transform: scale(0.96);
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+/* Screen-Reader Only Accessibility Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Toast Notification */
+.toast-container {
+  position: fixed;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: var(--accent-color);
+  color: var(--text-primary);
+  border-radius: var(--mosne-radius);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 10px var(--accent-glow);
+  transform: translateY(100px) scale(0.9);
+  opacity: 0;
+  font-family: 'DM Mono', monospace;
+  text-transform: lowercase;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              opacity 0.3s ease;
+}
+
+.toast.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.toast-icon {
+  font-weight: bold;
+}
+
+.toast-message {
+  font-size: 12px;
+  font-weight: 400;
+}

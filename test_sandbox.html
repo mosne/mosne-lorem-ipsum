@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lorem Ipsum Extension Test Page</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #1a1a1f;
+      color: #e2e8f0;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #6366f1;
+      border-bottom: 2px dashed #2d2d39;
+      padding-bottom: 10px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #94a3b8;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #334155;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      border-radius: 6px;
+      font-size: 1rem;
+      outline: none;
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus, textarea:focus, [contenteditable="true"]:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .editable-box {
+      border: 1px solid #334155;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      padding: 12px;
+      border-radius: 6px;
+      min-height: 100px;
+      font-size: 1rem;
+      outline: none;
+    }
+    .status-panel {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #1e1e24;
+      border: 1px solid #2d2d39;
+      border-radius: 8px;
+    }
+    .status-panel h3 {
+      margin-top: 0;
+      color: #a855f7;
+    }
+    .status-panel p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lorem Ipsum Insert Sandbox</h1>
+  <p style="color: #94a3b8; margin-bottom: 30px;">
+    Use this page to test the Lorem Ipsum Quick-Insert extension. Click inside any of the fields below to focus, then click the extension icon and select a size.
+  </p>
+
+  <div class="form-group">
+    <label for="test-input">Standard Text Input</label>
+    <input type="text" id="test-input" placeholder="Click here and insert text...">
+  </div>
+
+  <div class="form-group">
+    <label for="test-textarea">Textarea (Multi-line)</label>
+    <textarea id="test-textarea" placeholder="Click here and insert text..."></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Contenteditable Div (Rich-Text Area)</label>
+    <div class="editable-box" contenteditable="true" placeholder="Click here and insert text..."></div>
+  </div>
+
+  <!-- Shadow DOM Test Host -->
+  <div class="form-group">
+    <label>Shadow DOM Text Input</label>
+    <div id="shadow-host"></div>
+  </div>
+
+  <div class="status-panel">
+    <h3>Instructions</h3>
+    <ol style="margin-left: 20px; font-size: 0.9rem; color: #94a3b8; line-height: 1.6;">
+      <li>Open Chrome Extensions page: <code>chrome://extensions</code></li>
+      <li>Enable <strong>Developer mode</strong> in the top-right.</li>
+      <li>Click <strong>Load unpacked</strong> and select the <code>mosne-lorem-ipsum</code> folder.</li>
+      <li>Focus on any of the input areas above.</li>
+      <li>Open the extension and click any button. The generated Lorem Ipsum should be placed exactly where your cursor was.</li>
+    </ol>
+  </div>
+
+  <script>
+    // Create Shadow DOM elements to verify deep active element search
+    const host = document.getElementById('shadow-host');
+    const shadow = host.attachShadow({ mode: 'open' });
+    
+    // Add styling to shadow DOM
+    const style = document.createElement('style');
+    style.textContent = `
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #334155;
+        background-color: #0f172a;
+        color: #f1f5f9;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        box-sizing: border-box;
+      }
+      input:focus {
+        border-color: #a855f7;
+        box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2);
+      }
+    `;
+    shadow.appendChild(style);
+
+    const shadowInput = document.createElement('input');
+    shadowInput.type = 'text';
+    shadowInput.placeholder = 'I live inside a Shadow DOM! Click and insert...';
+    shadow.appendChild(shadowInput);
+
+    // Watch events to show detection works
+    const logEvent = (e) => {
+      console.log(`Event triggered on #${e.target.id || 'shadow-input'}:`, e.type, 'Value length:', e.target.value?.length || e.target.innerText?.length);
+    };
+
+    document.getElementById('test-input').addEventListener('input', logEvent);
+    document.getElementById('test-textarea').addEventListener('input', logEvent);
+    document.querySelector('.editable-box').addEventListener('input', logEvent);
+    shadowInput.addEventListener('input', logEvent);
+  </script>
+</body>
+</html>
