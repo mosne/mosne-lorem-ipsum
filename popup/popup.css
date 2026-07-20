@@ -81,19 +81,21 @@ body {
   letter-spacing: 1px;
 }
 
-/* Grid Layouts */
-.grid {
-  display: grid;
+/* Button Rows Layouts */
+.paragraph-rows {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
-.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
+.button-row {
+  display: flex;
+  flex-direction: row-reverse; /* Reverses DOM order visually (1x left, 3x right) */
+  gap: 8px;
 }
 
-.grid-3x3 {
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+.button-row .btn {
+  flex: 1;
 }
 
 /* Pill Buttons */
@@ -101,7 +103,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 24px; /* Reduced to half of 48px */
+  height: 24px;
   border-radius: var(--mosne-radius);
   border: 1px solid var(--border-color);
   background: transparent;
@@ -112,16 +114,18 @@ body {
   padding: 0;
 }
 
-/* Hover: Orange accent background and border */
-.btn:hover {
+/* Hover: Orange accent background/border for hovered button and all visual preceding buttons */
+.btn:hover,
+.btn:hover ~ .btn {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px var(--accent-glow);
 }
 
-/* Active: Inverts to white background */
-.btn:active {
+/* Active: Inverts to white background for active and visual preceding buttons */
+.btn:active,
+.btn:active ~ .btn {
   transform: scale(0.96);
   background-color: var(--text-primary);
   border-color: var(--text-primary);

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mosne lorem ipsum</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
   <div class="app-container">
     <!-- Header -->
@@ -16,7 +20,9 @@
       <h1 class="app-title">mosne lorem ipsum</h1>
       <div class="logo">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" fill="none" viewBox="0 0 80 64">
-          <path fill="currentColor" d="M16 56a8 8 0 1 1-8-8h8v8Zm32 0a8 8 0 1 1-16 0v-8h16v8Zm32 0a8 8 0 1 1-16 0v-8h8a8 8 0 0 1 8 8Zm-48-8H16v-8a8 8 0 1 1 16 0v8Zm32 0H48v-8a8 8 0 1 1 16 0v8ZM48 8a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"></path>
+          <path fill="currentColor"
+            d="M16 56a8 8 0 1 1-8-8h8v8Zm32 0a8 8 0 1 1-16 0v-8h16v8Zm32 0a8 8 0 1 1-16 0v-8h8a8 8 0 0 1 8 8Zm-48-8H16v-8a8 8 0 1 1 16 0v8Zm32 0H48v-8a8 8 0 1 1 16 0v8ZM48 8a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z">
+          </path>
         </svg>
       </div>
     </header>
@@ -24,15 +30,15 @@
     <!-- Sentence Length Section -->
     <section class="section">
       <h2 class="section-title">sentence length</h2>
-      <div class="grid grid-3">
-        <button class="btn" data-type="sentence" data-count="1" aria-label="1 sentence" title="1 sentence">
-          <span class="sr-only">1x sentence</span>
+      <div class="button-row">
+        <button class="btn" data-type="sentence" data-count="3" aria-label="long sentence" title="long sentence">
+          <span class="sr-only">long sentence</span>
         </button>
-        <button class="btn" data-type="sentence" data-count="2" aria-label="2 sentences" title="2 sentences">
-          <span class="sr-only">2x sentences</span>
+        <button class="btn" data-type="sentence" data-count="2" aria-label="medium sentence" title="medium sentence">
+          <span class="sr-only">medium sentence</span>
         </button>
-        <button class="btn" data-type="sentence" data-count="3" aria-label="3 sentences" title="3 sentences">
-          <span class="sr-only">3x sentences</span>
+        <button class="btn" data-type="sentence" data-count="1" aria-label="short sentence" title="short sentence">
+          <span class="sr-only">short sentence</span>
         </button>
       </div>
     </section>
@@ -40,39 +46,54 @@
     <!-- Paragraph Length Section -->
     <section class="section">
       <h2 class="section-title">paragraph length</h2>
-      <div class="grid grid-3x3">
+      <div class="paragraph-rows">
         <!-- Row 1: Short paragraphs -->
-        <button class="btn" data-type="paragraph-short" data-count="1" aria-label="1 short paragraph" title="1 short paragraph">
-          <span class="sr-only">1x short paragraph</span>
-        </button>
-        <button class="btn" data-type="paragraph-short" data-count="2" aria-label="2 short paragraphs" title="2 short paragraphs">
-          <span class="sr-only">2x short paragraphs</span>
-        </button>
-        <button class="btn" data-type="paragraph-short" data-count="3" aria-label="3 short paragraphs" title="3 short paragraphs">
-          <span class="sr-only">3x short paragraphs</span>
-        </button>
+        <div class="button-row">
+          <button class="btn" data-type="paragraph-short" data-count="3" aria-label="3 short paragraphs"
+            title="3 short paragraphs">
+            <span class="sr-only">3x short paragraphs</span>
+          </button>
+          <button class="btn" data-type="paragraph-short" data-count="2" aria-label="2 short paragraphs"
+            title="2 short paragraphs">
+            <span class="sr-only">2x short paragraphs</span>
+          </button>
+          <button class="btn" data-type="paragraph-short" data-count="1" aria-label="1 short paragraph"
+            title="1 short paragraph">
+            <span class="sr-only">1x short paragraph</span>
+          </button>
+        </div>
 
         <!-- Row 2: Medium paragraphs -->
-        <button class="btn" data-type="paragraph-medium" data-count="1" aria-label="1 medium paragraph" title="1 medium paragraph">
-          <span class="sr-only">1x medium paragraph</span>
-        </button>
-        <button class="btn" data-type="paragraph-medium" data-count="2" aria-label="2 medium paragraphs" title="2 medium paragraphs">
-          <span class="sr-only">2x medium paragraphs</span>
-        </button>
-        <button class="btn" data-type="paragraph-medium" data-count="3" aria-label="3 medium paragraphs" title="3 medium paragraphs">
-          <span class="sr-only">3x medium paragraphs</span>
-        </button>
+        <div class="button-row">
+          <button class="btn" data-type="paragraph-medium" data-count="3" aria-label="3 medium paragraphs"
+            title="3 medium paragraphs">
+            <span class="sr-only">3x medium paragraphs</span>
+          </button>
+          <button class="btn" data-type="paragraph-medium" data-count="2" aria-label="2 medium paragraphs"
+            title="2 medium paragraphs">
+            <span class="sr-only">2x medium paragraphs</span>
+          </button>
+          <button class="btn" data-type="paragraph-medium" data-count="1" aria-label="1 medium paragraph"
+            title="1 medium paragraph">
+            <span class="sr-only">1x medium paragraph</span>
+          </button>
+        </div>
 
         <!-- Row 3: Long paragraphs -->
-        <button class="btn" data-type="paragraph-long" data-count="1" aria-label="1 long paragraph" title="1 long paragraph">
-          <span class="btn-only sr-only">1x long paragraph</span>
-        </button>
-        <button class="btn" data-type="paragraph-long" data-count="2" aria-label="2 long paragraphs" title="2 long paragraphs">
-          <span class="sr-only">2x long paragraphs</span>
-        </button>
-        <button class="btn" data-type="paragraph-long" data-count="3" aria-label="3 long paragraphs" title="3 long paragraphs">
-          <span class="sr-only">3x long paragraphs</span>
-        </button>
+        <div class="button-row">
+          <button class="btn" data-type="paragraph-long" data-count="3" aria-label="3 long paragraphs"
+            title="3 long paragraphs">
+            <span class="sr-only">3x long paragraphs</span>
+          </button>
+          <button class="btn" data-type="paragraph-long" data-count="2" aria-label="2 long paragraphs"
+            title="2 long paragraphs">
+            <span class="sr-only">2x long paragraphs</span>
+          </button>
+          <button class="btn" data-type="paragraph-long" data-count="1" aria-label="1 long paragraph"
+            title="1 long paragraph">
+            <span class="sr-only">1x long paragraph</span>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -86,4 +107,5 @@
   </div>
   <script src="popup.js"></script>
 </body>
+
 </html>
