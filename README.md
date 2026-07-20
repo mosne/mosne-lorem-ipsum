@@ -10,8 +10,8 @@ The user interface follows the design language of [Mosne Meditation](https://med
 
 - **one-click copy & insert**: copies generated text to the clipboard and automatically inserts it at your active text cursor.
 - **minimalist grid**: proposes a layout of pill buttons corresponding to different quantities of text:
-  - **sentence length**: 1x, 2x, 3x sentences.
-  - **paragraph length**: 1x, 2x, 3x paragraphs across Short, Medium, and Long sizes.
+  - **sentence length**: short, medium, or long sentence.
+  - **paragraph length**: 1x, 2x, or 3x paragraphs across Short, Medium, and Long sizes.
 - **smart element detection**: automatically inserts text into standard `<input>`, `<textarea>`, and rich-text `contenteditable` elements.
 - **shadow dom support**: recursively finds and inserts text into inputs hidden inside nested Shadow DOMs.
 - **framework friendly**: dispatches standard `input` and `change` events so changes are detected by React, Vue, and Angular frameworks.
@@ -21,13 +21,14 @@ The user interface follows the design language of [Mosne Meditation](https://med
 
 ## How It Works
 
-1. **Category Selection**: The buttons are laid out in a grid matching their text sizes:
-   - **Row 1 (Sentence)**: generates 1, 2, or 3 sentences (starts with the classic *"Lorem ipsum dolor sit..."* for the first sentence).
-   - **Row 2 (Paragraph - Short)**: generates 1, 2, or 3 short paragraphs (2-3 sentences each).
-   - **Row 3 (Paragraph - Medium)**: generates 1, 2, or 3 medium paragraphs (4-6 sentences each).
-   - **Row 4 (Paragraph - Long)**: generates 1, 2, or 3 long paragraphs (7-9 sentences each).
-2. **Action Trigger**: 
-   - Hovering over a button displays a native browser tooltip indicating its size (e.g. *"2 short paragraphs"*).
+1. **Category Selection**: The buttons are laid out in rows. Hovering over a button highlights it and all preceding ones in orange — giving a cumulative visual feedback similar to a star-rating selector:
+   - **Row 1 (Sentence)**: three pill buttons — `short sentence`, `medium sentence`, `long sentence` — each generating a single sentence of increasing length. Always starts with the classic *"Lorem ipsum dolor sit amet..."* opener.
+   - **Row 2 (Paragraph - Short)**: generates 1, 2, or 3 short paragraphs (2–3 sentences each).
+   - **Row 3 (Paragraph - Medium)**: generates 1, 2, or 3 medium paragraphs (4–6 sentences each).
+   - **Row 4 (Paragraph - Long)**: generates 1, 2, or 3 long paragraphs (7–9 sentences each).
+2. **Action Trigger**:
+   - Hovering over a button highlights it and all preceding pills in orange.
+   - Native browser tooltips (e.g. *"medium sentence"*, *"2 short paragraphs"*) describe each empty pill on hover.
    - Clicking a button copies the generated text to the clipboard and attempts to inject it at the active text cursor.
    - A toast notification confirms whether it was copied and inserted, or if the page type blocked injection (like the Chrome Web Store or `chrome://` system pages).
 
